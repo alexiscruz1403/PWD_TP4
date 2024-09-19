@@ -82,23 +82,26 @@ class Persona{
 
     //Propios
     public function inicializar($datos){
+        if (is_array($datos)) {
         $this->setNroDni($datos['nroDni']);
-        $this->setNombre($datos['nombre']);
         $this->setApellido($datos['apellido']);
+        $this->setNombre($datos['nombre']);
         $this->setFechaNacimiento($datos['fechaNacimiento']);
         $this->setTelefono($datos['telefono']);
         $this->setDomicilio($datos['domicilio']);
+        }
     }
 
     public function insertar(){
-        $completado=false;
+        
         $db = new DataBase();
-        $query = "INSERT INTO persona (nroDni, nombre, apellido, fechaNacimiento, telefono, domicilio) VALUES (".$this->getNroDni().",'".$this->getNombre()."','".$this->getApellido()."','".$this->getFechaNacimiento()."','".$this->getTelefono()."','".$this->getDomicilio()."')";
+        $query = "INSERT INTO persona (nroDni,  apellido, nombre, fechaNacimiento, telefono, domicilio) VALUES (".$this->getNroDni().",'".$this->getApellido()."','".$this->getNombre()."','".$this->getFechaNacimiento()."','".$this->getTelefono()."','".$this->getDomicilio()."')";
         if($db->iniciar()){
             if($db->ejecutar($query)){
                 $completado=true;
             }else{
                 $this->setMensaje($db->getError());
+                $completado=false;
             }
         }else{
             $this->setMensaje($db->getError());

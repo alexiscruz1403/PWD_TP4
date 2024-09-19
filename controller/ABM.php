@@ -62,7 +62,7 @@ class ABM{
 
     public function buscarPersona($datos){
         $objPersona = null;
-        if ($this->isSetPersonaId($datos)){
+     if ($this->isSetPersonaId($datos)){
             $objPersona = new Persona();
             $encontrado=$objPersona->buscar($datos['nroDni']);
             if(!$encontrado){
@@ -73,14 +73,21 @@ class ABM{
     }
 
     public function insertarPersona($datos){
-        $objPersona = new Persona();
-        $objPersona->inicializar($datos);
-        $insertado=$objPersona->insertar();
-        if(!$insertado){
-            $this->setMensajeError($objPersona->getMensaje());
+        $insertado = false;
+    
+        if(is_array($datos)) {
+            $objPersona = new Persona();
+            $objPersona->inicializar($datos);
+            $insertado = $objPersona->insertar();
+            
+            if(!$insertado){
+                $this->setMensajeError($objPersona->getMensaje());
+            }
         }
+    
         return $insertado;
     }
+    
 
     public function insertarAuto($datos){
         $objAuto = new Auto();

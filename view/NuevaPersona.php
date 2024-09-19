@@ -11,33 +11,33 @@
         <form action="./Action/accionNuevaPersona.php" method="post" class="col s12">
         
             <div class="input-field">
-                <input type="text" name="NroDni" id="NroDni" class="validate" required>
-                <label for="NroDni">DNI</label>
+                <input type="text" name="nroDni" id="nroDni" class="validate" required>
+                <label for="nroDni">DNI</label>
             </div>
           
             <div class="input-field">
-                <input type="text" name="Apellido" id="Apellido" class="validate" required>
-                <label for="Apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido" class="validate" required>
+                <label for="apellido">Apellido</label>
             </div>
             
             <div class="input-field">
-                <input type="text" name="Nombre" id="Nombre" class="validate" required>
-                <label for="Nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="validate" required>
+                <label for="nombre">Nombre</label>
             </div>
             
             <div class="input-field">
-                <input type="date" name="fechaNac" id="fechaNac" class="validate" required>
-                <label for="fechaNac">Fecha de Nacimiento</label>
+                <input type="date" name="fechaNacimiento" id="fechaNacimiento" class="validate" required>
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
             </div>
             
             <div class="input-field">
-                <input type="number" name="Telefono" id="Telefono" class="validate" required>
-                <label for="Telefono">Teléfono</label>
+                <input type="number" name="telefono" id="telefono" class="validate" required>
+                <label for="telefono">Teléfono</label>
             </div>
             
             <div class="input-field">
-                <input type="text" name="Domicilio" id="Domicilio" class="validate" required>
-                <label for="Domicilio">Domicilio</label>
+                <input type="text" name="domicilio" id="domicilio" class="validate" required>
+                <label for="domicilio">Domicilio</label>
             </div>
             
             <div class="input-field center-align">
