@@ -13,8 +13,8 @@
         <form action="./Action/accionBuscarPersona.php" method="post" class="col s12">
         
             <div class="input-field">
-                <input type="number" name="NroDni" id="NroDni" class="validate" required>
-                <label for="NroDni">Ingrese el DNI de la persona</label>
+                <input type="number" name="nroDni" id="nroDni" class="validate" required>
+                <label for="nroDni">Ingrese el DNI de la persona</label>
             </div>
 
             <div class="input-field center-align">
