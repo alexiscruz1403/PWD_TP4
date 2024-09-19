@@ -1,6 +1,10 @@
 <?php
 
-class DataBase extends PDO{
+require_once __DIR__ . '/../../vendor/autoload.php';
+use Dotenv\Dotenv;
+
+class DataBase extends PDO
+{
     //Atributos
     private $engine;
     private $host;
@@ -12,155 +16,191 @@ class DataBase extends PDO{
     private $result;
     private $query;
     private $index;
+    private $port;
 
     //Constructor
-    public function __construct(){
-        $this->engine = "mysql";
-        $this->host = "localhost";
-        $this->db = "infoautos";
-        $this->user = "root";
-        $this->pass = "";
+    public function __construct()
+    {
+
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+        $dotenv->load();
+
+        $this->engine = $_ENV['DB_ENGINE'];
+        $this->host = $_ENV['DB_HOST'];
+        $this->db = $_ENV['DB_NAME'];
+        $this->user = $_ENV['DB_USER'];
+        $this->pass = $_ENV['DB_PASS'];
+        $this->port = $_ENV['DB_PORT'];
         $this->error = "";
-        $this->query="";
-        $this->index=-1;
-        $dns = $this->engine.':dbname='.$this->db.";host=".$this->host;
+        $this->query = "";
+        $this->index = -1;
+
+        $dns = $this->engine . ':host=' . $this->host . ';dbname=' . $this->db . ';port=' . $this->port;
+
         try {
-           parent::__construct( $dns, $this->user, $this->pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-           $this->connection=true;
-        }catch (PDOException $e) {
+            parent::__construct($dns, $this->user, $this->pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+            $this->connection = true;
+        } catch (PDOException $e) {
             $this->error = $e->getMessage();
-            $this->connection=false;
+            $this->connection = false;
         }
     }
 
     //Observadores
-    public function getConnection(){
+    public function getConnection()
+    {
         return $this->connection;
     }
 
-    public function getError(){
+    public function getError()
+    {
         return $this->error;
     }
 
-    public function getResult(){
+    public function getResult()
+    {
         return $this->result;
     }
 
-    public function getQuery(){
+    public function getQuery()
+    {
         return $this->query;
     }
 
-    public function getIndex(){
+    public function getIndex()
+    {
         return $this->index;
     }
 
     //Modificadores
-    public function setError($error){
+    public function setError($error)
+    {
         $this->error = $error;
     }
 
-    public function setResult($result){
+    public function setResult($result)
+    {
         $this->result = $result;
     }
 
-    public function setQuery($query){
+    public function setQuery($query)
+    {
         $this->query = $query;
     }
 
-    public function setIndex($index){
+    public function setIndex($index)
+    {
         $this->index = $index;
     }
 
     //Propios
-    public function iniciar(){
+    public function iniciar()
+    {
         return $this->getConnection();
     }
 
-    public function ejecutar($query){
+    public function ejecutar($query)
+    {
         $this->setError("");
         $this->setQuery($query);
-        if(stristr($query,"insert")){
-            $resp=$this->insertar($query);
+        if (stristr($query, "insert")) {
+            $resp = $this->insertar($query);
         }
 
-        if(stristr($query,"update")){
-            $resp=$this->modificar($query);
+        if (stristr($query, "update")) {
+            $resp = $this->modificar($query);
         }
 
-        if(stristr($query,"delete")){
-            $resp=$this->eliminar($query);
+        if (stristr($query, "delete")) {
+            $resp = $this->eliminar($query);
         }
-        
-        if (stristr($query,"select")){
-            $resp=$this->listar($query);
+
+        if (stristr($query, "select")) {
+            $resp = $this->listar($query);
         }
         return $resp;
     }
 
-    public function insertar($sql){
-        try{
-            $resultado=parent::query($sql);
-        }catch(PDOException $e){
-            $resultado=false;
-            $error=$this->errorInfo();
+    public function insertar($sql)
+    {
+        try {
+            $resultado = parent::query($sql);
+        } catch (PDOException $e) {
+            $resultado = false;
+            $error = $this->errorInfo();
             $this->setError($error[2]);
         }
         return $resultado;
     }
 
-    public function eliminar($sql){
-        $affectedRows=-1;
-        try{
-            $resultado=parent::query($sql);
-            $affectedRows=$resultado->rowCount();
-        }catch(PDOException $e){
-            $error=$this->errorInfo();
+    public function eliminar($sql)
+    {
+        $affectedRows = -1;
+        try {
+            $resultado = parent::query($sql);
+            $affectedRows = $resultado->rowCount();
+        } catch (PDOException $e) {
+            $error = $this->errorInfo();
             $this->setError($error[2]);
         }
         return $affectedRows;
     }
 
-    public function modificar($sql){
-        $affectedRows=-1;
-        try{
-            $resultado=parent::query($sql);
-            $affectedRows=$resultado->rowCount();
-        }catch(PDOException $e){
-            $error=$this->errorInfo();
+    public function modificar($sql)
+    {
+        $affectedRows = -1;
+        try {
+            $resultado = parent::query($sql);
+            $affectedRows = $resultado->rowCount();
+        } catch (PDOException $e) {
+            $error = $this->errorInfo();
             $this->setError($error[2]);
         }
         return $affectedRows;
     }
 
-    public function listar($sql){
-        $totalRows=-1;
-        $resultado=parent::query($sql);
-        if($resultado){
-            $arregloResultado=$resultado->fetchAll(PDO::FETCH_ASSOC);
-            $totalRows=count($arregloResultado);
+    public function listar($sql)
+    {
+        $totalRows = -1;
+        try {
+            $resultado = parent::query($sql);
+            $arregloResultado = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            $totalRows = count($arregloResultado);
             $this->setResult($arregloResultado);
             $this->setIndex(0);
-        }else{
-            $error=$this->errorInfo();
+        } catch (PDOException $e) {
+            $error = $this->errorInfo();
             $this->setError($error[2]);
         }
+
+        // $totalRows=-1;
+        // $resultado=parent::query($sql);
+        // if($resultado){
+        //     $arregloResultado=$resultado->fetchAll(PDO::FETCH_ASSOC);
+        //     $totalRows=count($arregloResultado);
+        //     $this->setResult($arregloResultado);
+        //     $this->setIndex(0);
+        // }else{
+        //     $error=$this->errorInfo();
+        //     $this->setError($error[2]);
+        // }
         return $totalRows;
     }
 
-   public function registro() {
-        $filaActual=false;
-        $indiceActual=$this->getIndex();
-        if($indiceActual>=0) {
-            $filas=$this->getResult();
-            if($indiceActual<count($filas)){
+    public function registro()
+    {
+        $filaActual = false;
+        $indiceActual = $this->getIndex();
+        if ($indiceActual >= 0) {
+            $filas = $this->getResult();
+            if ($indiceActual < count($filas)) {
                 $filaActual =  $filas[$indiceActual];
                 $indiceActual++;
                 $this->setIndex($indiceActual);
-            }else {
+            } else {
                 $this->setIndex(-1);
             }
-        
-        } 
+        }
         return $filaActual;
     }
 }
