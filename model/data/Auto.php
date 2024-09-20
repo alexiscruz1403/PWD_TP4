@@ -1,7 +1,5 @@
 <?php
 
-include_once '../model/database/DataBase.php';
-
 class Auto{
     //Atributos
     private $patente;

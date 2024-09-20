@@ -1,6 +1,6 @@
 <?php
 
-include_once '../controller/ABM.php';
+include_once '../util/configuracion.php';
 
 $abm = new ABM(); 
 $autos = $abm->listarAutos(); 
@@ -55,7 +55,7 @@ $autos = $abm->listarAutos();
             <?php endif; ?>
         </div>
         <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4">
-            <a href="../menu.html" class="white-text">Menu</a>
+            <a href="../menu.php" class="white-text">Menu</a>
         </button>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
