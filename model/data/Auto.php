@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../model/database/DataBase.php';
+include_once '../model/database/DataBase.php';
 
 class Auto{
     //Atributos
