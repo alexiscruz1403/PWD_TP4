@@ -1,5 +1,4 @@
 <?php
-
 class ABM{
     //Atributos
     private $mensajeError;
@@ -35,7 +34,6 @@ class ABM{
         }
         return $resp;
     }
-
     public function listarAutos($datos=""){
         $objAuto = new Auto();
         $autos = $objAuto->listar($datos);

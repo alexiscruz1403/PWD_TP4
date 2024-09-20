@@ -8,9 +8,7 @@ $mensaje = "";
 
 if ($dni) {
     $control = new ABM();
-    
     $persona = $control->buscarPersona(['nroDni' => $dni]); 
-    
     if ($persona) {
         $mensaje .= "DNI: " . $persona->getNroDni() . "<br>";
         $mensaje .= "Apellido: " . $persona->getApellido() . "<br>";

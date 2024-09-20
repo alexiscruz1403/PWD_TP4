@@ -5,7 +5,6 @@
     <title>Buscar Persona</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     
-
 </head>
 <body>
 <div class="container">

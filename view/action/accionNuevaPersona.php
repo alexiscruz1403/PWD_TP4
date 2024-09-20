@@ -13,6 +13,7 @@ $nombre = isset($datos['nombre']) ? $datos['nombre'] : null;
 $fechaNac = isset($datos['fechaNacimiento']) ? $datos['fechaNacimiento'] : null;
 $telefono = isset($datos['telefono']) ? $datos['telefono'] : null;
 $Domicilio = isset($datos['domicilio']) ? $datos['domicilio'] : null;
+
 $objTrans = new ABM();
 if ($nroDni && $apellido && $nombre && $fechaNac && $telefono && $Domicilio) {
     $datos = [

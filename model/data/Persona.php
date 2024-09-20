@@ -1,5 +1,4 @@
 <?php
-
 class Persona{
     //Atributos
     private $nroDni;
@@ -93,7 +92,6 @@ class Persona{
     }
 
     public function insertar(){
-        
         $db = new DataBase();
         $query = "INSERT INTO persona (nroDni,  apellido, nombre, fechaNacimiento, telefono, domicilio) VALUES (".$this->getNroDni().",'".$this->getApellido()."','".$this->getNombre()."','".$this->getFechaNacimiento()."','".$this->getTelefono()."','".$this->getDomicilio()."')";
         if($db->iniciar()){
