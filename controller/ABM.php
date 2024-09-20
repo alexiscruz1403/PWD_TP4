@@ -1,7 +1,8 @@
 <?php
 
-include_once '../../model/data/Auto.php';
-include_once '../../model/data/Persona.php';
+include_once '../model/database/DataBase.php';
+include_once '../model/data/Auto.php';
+include_once '../model/data/Persona.php';
 
 
 class ABM{

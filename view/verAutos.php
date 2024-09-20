@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../controller/ABM.php'; 
+include_once '../controller/ABM.php';
 
 $abm = new ABM(); 
 $autos = $abm->listarAutos(); 
@@ -21,7 +21,7 @@ $autos = $abm->listarAutos();
         <nav>
             <div class="nav-wrapper">
                 <div class="col s12 m12 l12">
-                    <a href="../menu.html" class="breadcrumb">Menu</a>
+                    <a href="../menu.php" class="breadcrumb">Menu</a>
                 </div>
             </div>
         </nav>
@@ -35,7 +35,7 @@ $autos = $abm->listarAutos();
                         <tr>
                             <th>Patente</th>
                             <th>Marca</th>
-                            <th>Modelo</th>
+                            <th>Modelo (año)</th>
                             <th>Dueño</th>
                         </tr>
                     </thead>
