@@ -1,9 +1,5 @@
 <?php
 
-include_once '../model/data/Auto.php';
-include_once '../model/data/Persona.php';
-
-require_once __DIR__ . '/../../vendor/autoload.php';
 use Dotenv\Dotenv;
 
 class DataBase extends PDO
