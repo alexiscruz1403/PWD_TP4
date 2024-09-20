@@ -1,0 +1,13 @@
+{
+    "name": "grupo8/pwd_tp4",
+    "type": "project",
+    "authors": [
+        {
+            "name": "grupo8",
+            "email": "pablo.antueno@fi.uncoma.edu.ar"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
