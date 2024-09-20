@@ -110,7 +110,7 @@ class Persona{
     public function modificar(){
         $completado=false;
         $db = new DataBase();
-        $query = "UPDATE persona SET nombre='".$this->getNombre()."', apellido='".$this->getApellido()."', fechaNacimiento='".$this->getFechaNacimiento()."', telefono='".$this->getTelefono()."', domicilio='".$this->getDomicilio()."' WHERE nroDni=".$this->getNroDni()."";
+        $query = "UPDATE persona SET nombre='".$this->getNombre()."', apellido='".$this->getApellido()."', fechaNacimiento='".$this->getFechaNacimiento()."', telefono='".$this->getTelefono()."', domicilio='".$this->getDomicilio()."' WHERE =".$this->getNroDni()."";
         if($db->iniciar()){
             if($db->ejecutar($query)>0){
                 $completado=true;
@@ -144,7 +144,7 @@ class Persona{
     public function buscar($nroDni){
         $encontrado=false;
         $db = new DataBase();
-        $query = "SELECT * FROM persona WHERE nroDni=".$nroDni;
+        $query = 'SELECT * FROM persona WHERE nroDni='.$nroDni;
         if($db->iniciar()){
             $res = $db->ejecutar($query);
             if($res>-1){
