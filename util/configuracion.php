@@ -11,16 +11,16 @@ $PROYECTO = "PWD_TP4";
 /*
 __DIR__:Esta constante mágica de PHP devuelve el directorio completo donde está ubicado el archivo que contiene esta línea. 
 */
-// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../'); 
-// $dotenv->load();
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../'); 
+$dotenv->load();
 
 // // Obtener las variables de entorno
-// $DB_HOST = $_ENV['DB_HOST'];
-// $DB_NAME = $_ENV['DB_NAME'];
-// $DB_USER = $_ENV['DB_USER'];
-// $DB_PASS = $_ENV['DB_PASS'];
-// $DB_PORT = $_ENV['DB_PORT'];
-// $DB_ENGINE = $_ENV['DB_ENGINE'];
+$DB_HOST = $_ENV['DB_HOST'];
+$DB_NAME = $_ENV['DB_NAME'];
+$DB_USER = $_ENV['DB_USER'];
+$DB_PASS = $_ENV['DB_PASS'];
+$DB_PORT = $_ENV['DB_PORT'];
+$DB_ENGINE = $_ENV['DB_ENGINE'];
 
 // Variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";

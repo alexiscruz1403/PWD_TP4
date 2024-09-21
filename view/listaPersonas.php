@@ -2,8 +2,8 @@
 
 include_once '../util/configuracion.php';
 
-$abm = new ABM(); 
-$personas = $abm->listarPersonas(); 
+$abm = new ABM();
+$personas = $abm->listarPersonas();
 
 ?>
 
@@ -14,14 +14,14 @@ $personas = $abm->listarPersonas();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Listado de Personas</title>
+    <title>Lista de Personas</title>
 </head>
 <body class="grey darken-3">
     <header class="row">
         <nav>
             <div class="nav-wrapper">
                 <div class="col s12 m12 l12">
-                    <a href="../menu.php" class="breadcrumb">Menú</a>
+                    <a href="../menu.php" class="breadcrumb">Menu</a>
                 </div>
             </div>
         </nav>
@@ -36,7 +36,7 @@ $personas = $abm->listarPersonas();
                             <th>DNI</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
-                            <th>Autos Asociados</th>
+                            <th>Autos</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,7 +46,11 @@ $personas = $abm->listarPersonas();
                             <td><?php echo $persona->getNombre(); ?></td>
                             <td><?php echo $persona->getApellido(); ?></td>
                             <td>
-                                <a href="autosPersona.php?dni=<?php echo $persona->getNroDni(); ?>" class="btn blue-grey">Ver lista</a>
+                                <form action="autosPersona.php" method="POST">
+                                    <input type="hidden" name="dni" value="<?php echo $persona->getNroDni(); ?>">
+                                    <button type="submit" class="waves-effect waves-teal btn-flat btn-small">>Ver<</button>
+
+                                </form>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -57,7 +61,7 @@ $personas = $abm->listarPersonas();
             <?php endif; ?>
         </div>
         <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4">
-            <a href="../menu.php" class="white-text">Menú</a>
+            <a href="../menu.php" class="white-text">Menu</a>
         </button>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
