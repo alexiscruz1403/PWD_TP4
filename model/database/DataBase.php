@@ -1,10 +1,8 @@
 <?php
 
-use Dotenv\Dotenv;
-
 class DataBase extends PDO
 {
-    //Atributos
+  
     private $engine;
     private $host;
     private $db;
@@ -20,9 +18,6 @@ class DataBase extends PDO
     //Constructor
     public function __construct()
     {
-
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
-        $dotenv->load();
 
         $this->engine = $_ENV['DB_ENGINE'];
         $this->host = $_ENV['DB_HOST'];

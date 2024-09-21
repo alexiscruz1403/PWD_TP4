@@ -150,6 +150,7 @@ class Auto{
         return $encontrado;
     }
 
+
     public function listar($condicion=""){
         $db=new DataBase();
         $autos=[];
