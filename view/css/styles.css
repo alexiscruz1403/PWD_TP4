@@ -46,8 +46,13 @@ p{
 }
 
 .row{
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
+
+header nav .row {
+    margin-bottom: 0 !important;
+}
+
 
 button a{
     width: 100%;

@@ -35,6 +35,10 @@ if ($patente) {
     <title>Resultado de la Búsqueda</title>
 </head>
 <body>
+
+<!-- navbar -->
+<?php include_once($ROOT . '/view/components/navbar.php'); ?>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -50,5 +54,9 @@ if ($patente) {
         </div>
     </div>
 </div>
+
+  <!-- footer -->
+  <?php include_once($ROOT . '/view/components/footer.php'); ?>
+  
 </body>
 </html>

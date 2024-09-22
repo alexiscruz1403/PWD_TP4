@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 include_once("../../util/configuracion.php");
 
-$datos = dataSubmmited(); 
+$datos = dataSubmmited();
 $resp = false;
 $mensaje = "";
 
@@ -37,23 +37,28 @@ if ($nroDni && $apellido && $nombre && $fechaNac && $telefono && $Domicilio) {
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1-transitional.dtd">
 <html lang="es">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <title>Resultado de la Operación</title>
 </head>
+
 <body>
-   
+
+    <!-- navbar -->
+    <?php include_once($ROOT . '/view/components/navbar.php'); ?>
+
     <div class="container">
-        
+
         <div class="card blue lighten-4">
             <div class="card-content">
                 <span class="card-title">Resultado de la Operación</span>
                 <p>
                     <?php echo $mensaje;
-                     ?>
+                    ?>
                 </p>
             </div>
             <div class="card-action">
@@ -62,6 +67,10 @@ if ($nroDni && $apellido && $nombre && $fechaNac && $telefono && $Domicilio) {
         </div>
     </div>
 
+      <!-- footer -->
+      <?php include_once($ROOT . '/view/components/footer.php'); ?>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>
