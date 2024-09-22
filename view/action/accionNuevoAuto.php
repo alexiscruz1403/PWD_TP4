@@ -58,7 +58,7 @@ $persona=$control->buscarPersona($data);
             <?php endif; ?>
         <?php else: ?>
             <h1 class="center-align col s12">No se encontro la persona con DNI <?=$data['nroDni']?></h1>
-            <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4"><a href="../ejercicio4_2/nuevaPersona.php" class="white-text">Cargar Persona</a></button>
+            <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4"><a href="../nuevaPersona.php" class="white-text">Cargar Persona</a></button>
         <?php endif; ?>
         <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4"><a href="../nuevoAuto.php" class="white-text">Volver</a></button>
     </main>

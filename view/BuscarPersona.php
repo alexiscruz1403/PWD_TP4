@@ -9,7 +9,7 @@
 <body>
 <div class="container">
         <h1 class="center-align">Buscar Persona</h1>
-        <form action="./Action/accionBuscarPersona.php" method="post" class="col s12">
+        <form action="./action/accionBuscarPersona.php" method="post" class="col s12">
         
             <div class="input-field">
                 <input type="number" name="nroDni" id="nroDni" class="validate" required>

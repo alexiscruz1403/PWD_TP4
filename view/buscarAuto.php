@@ -10,10 +10,10 @@
 <body>
     <div class="container">
         <h1 class="center-align">Buscar Auto </h1>
-        <form action="./Action/accionBuscarAuto.php" method="post" class="col s12">
+        <form action="./action/accionBuscarAuto.php" method="post" class="col s12">
             <div class="input-field col s12">
-                <input type="text" name="Patente" id="Patente" required>
-                <label for="Patente">Ingrese la patente del auto:</label>
+                <input type="text" name="patente" id="patente" required>
+                <label for="patente">Ingrese la patente del auto:</label>
             </div>
             <div class="input-field col s12">
                 <input type="submit" class="btn waves-effect waves-light" value="Buscar Auto">

@@ -54,11 +54,37 @@ $autos = $abm->listarAutos();
                 <p class="center-align">No hay autos cargados en la base de datos.</p>
             <?php endif; ?>
         </div>
-        <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4">
-            <a href="../menu.php" class="white-text">Menu</a>
-        </button>
+        <a href="../menu.php" class="white-text">
+        <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4">Volver</button>
+        </a>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
+
+<footer class="page-footer">
+        <div class="row">
+            <div class="col l4">
+                <h3>Grupo 8</h3>
+                <ul>
+                    <li>Antueno Pablo Sebastian - FAI-4973</li>
+                    <li>Cruz Jesus Ramon Alexis - FAI-4682</li>
+                    <li>Mondaca Araceli Andrea - FAI-2147</li>
+                </ul>
+            </div>
+            <div class="col l4">
+                <h3>Programacion Web Dinamica</h3>
+                <ul>
+                    <li>Año 2024</li>
+                </ul>
+            </div>
+            <div class="col l4">
+                <h3>Universidad Nacional del Comahue</h3>
+                <ul>
+                    <li>Facultad de Informatica</li>
+                    <li>Tecnicatura Universitaria en Desarrollo Web</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </html>
