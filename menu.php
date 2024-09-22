@@ -23,7 +23,7 @@
             <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m2 l4 offset-l2"><a href="view/BuscarPersona.php" class="white-text">Buscar Persona</a></button>
             <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m1 l4 offset-l1"><a href="view/nuevoAuto.php" class="white-text">Nuevo Auto</a></button>
             <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m2 l4 offset-l2"><a href="view/NuevaPersona.php" class="white-text">Nueva Persona</a></button>
-            <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m1 l4 offset-l1"><a href="#" class="white-text">Cambiar Dueño</a></button>
+            <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m1 l4 offset-l1"><a href="view/cambioDuenio.php" class="white-text">Cambiar Dueño</a></button>
         </div>
     </main>
     <footer class="page-footer">

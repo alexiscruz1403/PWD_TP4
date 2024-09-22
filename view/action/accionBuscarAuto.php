@@ -1,24 +1,21 @@
 <?php
+
 include_once('../../util/configuracion.php');
-include_once('../../util/funciones.php');
-include_once('../../controller/ABM.php');
-
-
 
 
 $datos = dataSubmmited(); 
-$patente = isset($datos['Patente']) ? $datos['Patente'] : null;
+$patente = isset($datos['patente']) ? $datos['patente'] : null;
 $mensaje = ""; 
 $autoControl = new ABM(); 
 
 if ($patente) {
-    $auto = $autoControl->buscarAuto($patente);
+    $auto = $autoControl->buscarAuto($datos);
     if ($auto) {
         $mensaje = "<h2>Detalles del Auto</h2>";
         $mensaje .= "Patente: " . htmlspecialchars($auto->getPatente()) . "<br>";
         $mensaje .= "Marca: " . htmlspecialchars($auto->getMarca()) . "<br>";
         $mensaje .= "Modelo: " . htmlspecialchars($auto->getModelo()) . "<br>";
-        $mensaje .= "DNI del Dueño: " . htmlspecialchars($auto->getDniDuenio()) . "<br>";
+        $mensaje .= "DNI del Dueño: " . htmlspecialchars($auto->getDuenio()->getNroDni()) . "<br>";
     } else {
         
         $mensaje = "No se encontró el auto con la patente " . htmlspecialchars($patente) . ".";

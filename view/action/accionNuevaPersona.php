@@ -1,7 +1,6 @@
 <?php 
 
 include_once("../../util/configuracion.php");
-include_once('../../controller/ABM.php');
 
 $datos = dataSubmmited(); 
 $resp = false;
