@@ -5,18 +5,18 @@ include_once("../../util/configuracion.php");
 $datos = dataSubmmited();
 $mensaje = '';
 
-if (isset($datos['patente']) && isset($datos['dni'])) {
+if (isset($datos['patente']) && isset($datos['nroDni'])) {
     $patente = $datos['patente'];
-    $dni = $datos['dni'];
+    $dni = $datos['nroDni'];
 
     $abm = new ABM();
 
-    $auto = $abm->buscarAuto(['patente' => $patente]);
-    $persona = $abm->buscarPersona(['nroDni' => $dni]);
+    $auto = $abm->buscarAuto($datos);
+    $persona = $abm->buscarPersona($datos);
 
-    if (!$auto) {
+    if (!isset($auto)) {
         $mensaje = "Error: El auto con patente $patente no se encuentra registrado. Por favor registre el automóvil para iniciar el cambio de dueño.";
-    } elseif (!$persona) {
+    } elseif (!isset($persona)) {
         $mensaje = "Error: La persona con DNI $dni no está registrada. Por favor registre a la persona para iniciar el cambio de dueño del automóvil.";
     } else {
         $auto->setDuenio($persona);
@@ -27,7 +27,11 @@ if (isset($datos['patente']) && isset($datos['dni'])) {
             $apellidoPersona = $persona->getApellido();
             $mensaje = "El dueño del auto con patente $patente ha sido actualizado exitosamente. El/La nuevo/a dueño/a del auto $marca $modelo es $nombrePersona $apellidoPersona.";
         } else {
-            $mensaje = "Error al actualizar el dueño del auto.";
+            $mensajeError=$auto->getMensaje();
+            if($mensajeError=="0:registros no modificados"){
+                $mensajeError="El auto ya se encuentra registrado bajo el DNI N° $dni";
+            }
+            $mensaje = "Error al actualizar el dueño del auto. ".$mensajeError;
         }
     }
 } else {

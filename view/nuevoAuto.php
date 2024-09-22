@@ -43,10 +43,10 @@
                         <span class="helper-text" data-error="" data-success="Correcto"></span>
                     </div>
                 </div>
-                <button type="submit" type="submit" class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4">Cargar</button>
+                <button type="submit" class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4">Cargar</button>
             </form>
         </div>
-        <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4"><a href="../menu.php" class="white-text">Menu</a></button>
+        <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4"><a href="../menu.php" class="white-text">Volver</a></button>
     </main>
 
     <!-- footer -->

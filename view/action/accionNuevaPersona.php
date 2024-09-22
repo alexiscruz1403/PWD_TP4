@@ -43,32 +43,24 @@ if ($nroDni && $apellido && $nombre && $fechaNac && $telefono && $Domicilio) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Resultado de la Operación</title>
 </head>
 
-<body>
+<body class="grey darken-3">
 
-    <!-- navbar -->
     <?php include_once($ROOT . '/view/components/navbar.php'); ?>
 
-    <div class="container">
-
-        <div class="card blue lighten-4">
-            <div class="card-content">
-                <span class="card-title">Resultado de la Operación</span>
-                <p>
+    <main class="row blue-grey lighten-5 z-depth-5">
+                <p class="center-align col s12">
                     <?php echo $mensaje;
-                    ?>
+                     ?>
                 </p>
-            </div>
-            <div class="card-action">
-                <a href="../NuevaPersona.php" class="btn waves-effect waves-light">Volver</a>
-            </div>
-        </div>
-    </div>
+            
+      <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4"><a href="../NuevaPersona.php" class="white-text">Volver</a></button>
+    </main>
 
-      <!-- footer -->
-      <?php include_once($ROOT . '/view/components/footer.php'); ?>
+    <?php include_once($ROOT . '/view/components/footer.php'); ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

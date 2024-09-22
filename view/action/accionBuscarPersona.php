@@ -7,7 +7,7 @@ $mensaje = "";
 
 if ($dni) {
     $control = new ABM();
-    $persona = $control->buscarPersona(['nroDni' => $dni]);
+    $persona = $control->buscarPersona($datos);
     if ($persona) {
         $mensaje .= "DNI: " . $persona->getNroDni() . "<br>";
         $mensaje .= "Apellido: " . $persona->getApellido() . "<br>";
@@ -29,24 +29,25 @@ if ($dni) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Resultado de Búsqueda</title>
     <meta charset="UTF-8">
 </head>
 
-<body>
+<body class="grey darken-3">
 
     <!-- navbar -->
     <?php include_once($ROOT . '/view/components/navbar.php'); ?>
 
-    <div class="container">
-        <h3 class="center-align">Información de la Persona</h3>
-
-        <div class="card-panel grey lighten-3">
-            <p><?php echo $mensaje; ?></p>
+    <main class="row blue-grey lighten-5 z-depth-5">
+        <div class="container">
+            <h3 class="center-align">Información de la persona</h3>
+            <div class="card-panel grey lighten-3">
+            <?php echo $mensaje; ?>
+            </div>
         </div>
-
-        <a href="../BuscarPersona.php" class="waves-effect waves-light btn-small">Volver</a>
-    </div>
+        <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4"><a href="../BuscarPersona.php" class="white-text">Volver</a></button>
+    </main>
 
       <!-- footer -->
       <?php include_once($ROOT . '/view/components/footer.php'); ?>

@@ -3,10 +3,10 @@
 include_once('../../util/configuracion.php');
 
 
-$datos = dataSubmmited(); 
+$datos = dataSubmmited();
 $patente = isset($datos['patente']) ? $datos['patente'] : null;
-$mensaje = ""; 
-$autoControl = new ABM(); 
+$mensaje = "";
+$autoControl = new ABM();
 
 if ($patente) {
     $auto = $autoControl->buscarAuto($datos);
@@ -17,7 +17,7 @@ if ($patente) {
         $mensaje .= "Modelo: " . htmlspecialchars($auto->getModelo()) . "<br>";
         $mensaje .= "DNI del Dueño: " . htmlspecialchars($auto->getDuenio()->getNroDni()) . "<br>";
     } else {
-        
+
         $mensaje = "No se encontró el auto con la patente " . htmlspecialchars($patente) . ".";
     }
 } else {
@@ -27,36 +27,35 @@ if ($patente) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
 
     <title>Resultado de la Búsqueda</title>
 </head>
-<body>
 
-<!-- navbar -->
-<?php include_once($ROOT . '/view/components/navbar.php'); ?>
+<body class="grey darken-3">
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card bg-success text-white">
-                <div class="card-body">
-                    <h1 class="card-title">Resultado de la Búsqueda</h1>
-                    <p class="card-text">
-                        <?php echo $mensaje; ?>
-                    </p>
-                    <a href="../buscarAuto.php" class="btn btn-light">Volver</a>
-                </div>
+    <?php include_once($ROOT . '/view/components/navbar.php'); ?>
+
+    <main class="row blue-grey lighten-5 z-depth-5">
+        <div class="container">
+            <h3 class="center-align">Información del auto</h3>
+            <div class="card-panel grey lighten-3">
+            <?php echo $mensaje; ?>
             </div>
         </div>
-    </div>
-</div>
+        <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m4 l4 offset-l4"><a href="../buscarAuto.php" class="white-text">Volver</a></button>
+    </main>
 
-  <!-- footer -->
-  <?php include_once($ROOT . '/view/components/footer.php'); ?>
-  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <?php include_once($ROOT . '/view/components/footer.php'); ?>
+
 </body>
+
 </html>

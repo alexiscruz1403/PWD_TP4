@@ -98,7 +98,7 @@ class Auto{
             if($db->ejecutar($query)>0){
                 $completado=true;
             }elseif($db->ejecutar($query)==0){
-                $this->setMensaje("No se modifico ningun registro");
+                $this->setMensaje("0:registros no modificados");
             }else{
                 $this->setMensaje($db->getError());
             }

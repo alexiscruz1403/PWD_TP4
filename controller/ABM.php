@@ -73,14 +73,17 @@ class ABM{
 
     public function insertarPersona($datos){
         $insertado = false;
-    
         if(is_array($datos)) {
             $objPersona = new Persona();
             $objPersona->inicializar($datos);
-            $insertado = $objPersona->insertar();
-            
-            if(!$insertado){
-                $this->setMensajeError($objPersona->getMensaje());
+            $encontrado= $objPersona->buscar($datos['nroDni']);
+            if(!$encontrado){
+                $insertado = $objPersona->insertar();
+                if(!$insertado){
+                    $this->setMensajeError($objPersona->getMensaje());
+                }
+            }else{
+                $this->setMensajeError("El DNI ingresado ya se encuentra registrado");
             }
         }
     
@@ -89,14 +92,20 @@ class ABM{
     
 
     public function insertarAuto($datos){
+        $insertado=false;
         $objAuto = new Auto();
         $objPersona = new Persona();
         $objPersona->buscar($datos['nroDni']);
         $datos=['patente'=>$datos['patente'],'marca'=>$datos['marca'],'modelo'=>$datos['modelo'],'duenio'=>$objPersona];
         $objAuto->inicializar($datos);
-        $insertado=$objAuto->insertar();
-        if(!$insertado){
-            $this->setMensajeError($objAuto->getMensaje());
+        $encontrado=$objAuto->buscar($datos['patente']);
+        if(!$encontrado){
+            $insertado=$objAuto->insertar();
+            if(!$insertado){
+                $this->setMensajeError($objAuto->getMensaje());
+            }
+        }else{
+            $this->setMensajeError("La patente ingresada ya se encuentra cargada");
         }
         return $insertado;
     }

@@ -28,7 +28,7 @@
                         <span class="helper-text" data-error="" data-success="Correcto"></span>
                     </div>
                     <div class="input-field col s12 m4 offset-m4 l6 offset-l3">
-                        <input type="number" name="dni" id="dni" class="validate">
+                        <input type="number" name="nroDni" id="dni" class="validate">
                         <label for="dni">DNI</label>
                         <span class="helper-text" data-error="" data-success="Correcto"></span>
                     </div>

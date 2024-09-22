@@ -166,18 +166,6 @@ class DataBase extends PDO
             $error = $this->errorInfo();
             $this->setError($error[2]);
         }
-
-        // $totalRows=-1;
-        // $resultado=parent::query($sql);
-        // if($resultado){
-        //     $arregloResultado=$resultado->fetchAll(PDO::FETCH_ASSOC);
-        //     $totalRows=count($arregloResultado);
-        //     $this->setResult($arregloResultado);
-        //     $this->setIndex(0);
-        // }else{
-        //     $error=$this->errorInfo();
-        //     $this->setError($error[2]);
-        // }
         return $totalRows;
     }
 
