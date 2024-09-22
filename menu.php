@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<?php include_once("./util/configuracion.php"); ?>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,11 +12,10 @@
    
 </head>
 <body class="grey darken-3">
-    <header>
-        <div class="header-container">
-            <h2>Trabajo Practico N°4</h2>
-        </div>
-    </header>
+
+<!-- navbar -->
+<?php include_once($ROOT . '/view/components/navbar.php'); ?>
+   
     <main class="row blue-grey lighten-5 z-depth-5">
         <div class="row">
             <h1 class="center-align col s12">Menú Principal</h1>
@@ -26,31 +28,10 @@
             <button class="btn waves-effect waves-light blue-grey col s10 offset-s1 m4 offset-m1 l4 offset-l1"><a href="view/cambioDuenio.php" class="white-text">Cambiar Dueño</a></button>
         </div>
     </main>
-    <footer class="page-footer">
-        <div class="row">
-            <div class="col l4">
-                <h3>Grupo 8</h3>
-                <ul>
-                    <li>Antueno Pablo Sebastian - FAI-4973</li>
-                    <li>Cruz Jesus Ramon Alexis - FAI-4682</li>
-                    <li>Mondaca Araceli Andrea - FAI-2147</li>
-                </ul>
-            </div>
-            <div class="col l4">
-                <h3>Programacion Web Dinamica</h3>
-                <ul>
-                    <li>Año 2024</li>
-                </ul>
-            </div>
-            <div class="col l4">
-                <h3>Universidad Nacional del Comahue</h3>
-                <ul>
-                    <li>Facultad de Informatica</li>
-                    <li>Tecnicatura Universitaria en Desarrollo Web</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    
+    <!-- footer -->
+    <?php include_once($ROOT . '/view/components/footer.php'); ?>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>

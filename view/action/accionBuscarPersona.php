@@ -1,14 +1,13 @@
 <?php
 include_once("../../util/configuracion.php");
-include_once('../../controller/ABM.php');
 
-$datos = dataSubmmited(); 
+$datos = dataSubmmited();
 $dni = isset($datos['nroDni']) ? trim($datos['nroDni']) : null;
-$mensaje = ""; 
+$mensaje = "";
 
 if ($dni) {
     $control = new ABM();
-    $persona = $control->buscarPersona(['nroDni' => $dni]); 
+    $persona = $control->buscarPersona(['nroDni' => $dni]);
     if ($persona) {
         $mensaje .= "DNI: " . $persona->getNroDni() . "<br>";
         $mensaje .= "Apellido: " . $persona->getApellido() . "<br>";
@@ -16,7 +15,6 @@ if ($dni) {
         $mensaje .= "Fecha de Nacimiento: " . $persona->getFechaNacimiento() . "<br>";
         $mensaje .= "Telefono: " . $persona->getTelefono() . "<br>";
         $mensaje .= "Domicilio: " . $persona->getDomicilio() . "<br>";
-        
     } else {
         $mensaje = "No se encontró la persona con el DNI " . htmlspecialchars($dni) . ".";
     }
@@ -27,16 +25,22 @@ if ($dni) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <title>Resultado de Búsqueda</title>
     <meta charset="UTF-8">
 </head>
+
 <body>
+
+    <!-- navbar -->
+    <?php include_once($ROOT . '/view/components/navbar.php'); ?>
+
     <div class="container">
         <h3 class="center-align">Información de la Persona</h3>
-        
+
         <div class="card-panel grey lighten-3">
             <p><?php echo $mensaje; ?></p>
         </div>
@@ -44,7 +48,10 @@ if ($dni) {
         <a href="../BuscarPersona.php" class="waves-effect waves-light btn-small">Volver</a>
     </div>
 
-   
+      <!-- footer -->
+      <?php include_once($ROOT . '/view/components/footer.php'); ?>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>

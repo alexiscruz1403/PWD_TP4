@@ -47,17 +47,11 @@ if (isset($datos['patente']) && isset($datos['dni'])) {
     <title>Resultado del Cambio de Dueño</title>
 </head>
 
-<header>
-    <nav class="row">
-        <div class="nav-wrapper">
-            <div class="col s12 m12 l12">
-                <a href="/$ROOT/menu.php" class="breadcrumb">Menu</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
 <body class="grey darken-3">
+
+    <!-- navbar -->
+    <?php include_once($ROOT . '/view/components/navbar.php'); ?>
+
     <main class="row blue-grey lighten-5 z-depth-5">
         <h2 class="center-align col s12">Resultado</h2>
         <p class="center-align col s12"><?= $mensaje; ?></p>
@@ -65,58 +59,11 @@ if (isset($datos['patente']) && isset($datos['dni'])) {
             <a href="../cambioDuenio.php" class="white-text">Volver</a>
         </button>
     </main>
-    <footer class="page-footer">
-        <div class="row">
-            <div class="col l4">
-                <h3>Grupo 8</h3>
-                <ul>
-                    <li>Antueno Pablo Sebastian - FAI-4973</li>
-                    <li>Cruz Jesus Ramon Alexis - FAI-4682</li>
-                    <li>Mondaca Araceli Andrea - FAI-2147</li>
-                </ul>
-            </div>
-            <div class="col l4">
-                <h3>Programacion Web Dinamica</h3>
-                <ul>
-                    <li>Año 2024</li>
-                </ul>
-            </div>
-            <div class="col l4">
-                <h3>Universidad Nacional del Comahue</h3>
-                <ul>
-                    <li>Facultad de Informatica</li>
-                    <li>Tecnicatura Universitaria en Desarrollo Web</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    
+      <!-- footer -->
+      <?php include_once($ROOT . '/view/components/footer.php'); ?>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-
-<footer class="page-footer">
-        <div class="row">
-            <div class="col l4">
-                <h3>Grupo 8</h3>
-                <ul>
-                    <li>Antueno Pablo Sebastian - FAI-4973</li>
-                    <li>Cruz Jesus Ramon Alexis - FAI-4682</li>
-                    <li>Mondaca Araceli Andrea - FAI-2147</li>
-                </ul>
-            </div>
-            <div class="col l4">
-                <h3>Programacion Web Dinamica</h3>
-                <ul>
-                    <li>Año 2024</li>
-                </ul>
-            </div>
-            <div class="col l4">
-                <h3>Universidad Nacional del Comahue</h3>
-                <ul>
-                    <li>Facultad de Informatica</li>
-                    <li>Tecnicatura Universitaria en Desarrollo Web</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
 
 </html>
